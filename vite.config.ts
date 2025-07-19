@@ -21,10 +21,3 @@ export default defineConfig(({ mode }) => ({
   },
 }));
 
-export default {
-  build: {
-    rollupOptions: {
-      external: ["firebase/app"]
-    }
-  }
-}
