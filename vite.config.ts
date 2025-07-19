@@ -19,9 +19,12 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+}));
+
+export default {
   build: {
     rollupOptions: {
-      external: ['firebase/firestore']
+      external: ["firebase/app"]
     }
   }
-}));
+}
