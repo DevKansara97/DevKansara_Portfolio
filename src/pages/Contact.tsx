@@ -1,5 +1,3 @@
-// 
-
 import { Mail, Phone, MapPin, Github, Linkedin, Send, Download } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -99,8 +97,8 @@ const Contact = () => {
 
     try {
       // Add a new document to the 'messages' collection in Firestore
-      // The path 'artifacts/{appId}/public/data/messages' is for public data in Canvas environment
-      await addDoc(collection(db, `artifacts/portfolio-31777/public/data/messages`), {
+      // UPDATED: Use the new project ID 'dev-kansara' in the collection path
+      await addDoc(collection(db, `artifacts/dev-kansara/public/data/messages`), {
         name,
         email,
         subject,
@@ -176,7 +174,7 @@ const Contact = () => {
                   className="bg-portfolio-blue-dark text-white hover:bg-[#6bb7cc] hover:text-white"
                   asChild
                 >
-                  <a href="/Dev_Kansara_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
                     <Download className="w-4 h-4 mr-2" />
                     Download Resume
                   </a>
@@ -188,7 +186,7 @@ const Contact = () => {
             <div className="animate-slide-in-right">
               <Card className="p-8 bg-white border-portfolio-blue/20">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 font-poppins">Send Me a Message</h2>
-                <form className="space-y-6" onSubmit={handleSubmit}> {/* Added onSubmit handler */}
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -199,8 +197,8 @@ const Contact = () => {
                         type="text"
                         placeholder="Your Name"
                         className="border-gray-300"
-                        value={name} // Controlled component
-                        onChange={(e) => setName(e.target.value)} // Update state on change
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                     <div>
@@ -212,8 +210,8 @@ const Contact = () => {
                         type="email"
                         placeholder="your.email@example.com"
                         className="border-gray-300"
-                        value={email} // Controlled component
-                        onChange={(e) => setEmail(e.target.value)} // Update state on change
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                   </div>
@@ -227,8 +225,8 @@ const Contact = () => {
                       type="text"
                       placeholder="What's this about?"
                       className="border-gray-300"
-                      value={subject} // Controlled component
-                      onChange={(e) => setSubject(e.target.value)} // Update state on change
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
                     />
                   </div>
 
@@ -241,16 +239,16 @@ const Contact = () => {
                       placeholder="Tell me more about your project or opportunity..."
                       rows={6}
                       className="border-gray-300"
-                      value={message} // Controlled component
-                      onChange={(e) => setMessage(e.target.value)} // Update state on change
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                     />
                   </div>
 
                   <Button type="submit" className="w-full bg-portfolio-blue-dark text-white hover:bg-[#6bb7cc] hover:text-white" disabled={isSending}>
                     <Send className="w-4 h-4 mr-2" />
-                    {isSending ? 'Sending...' : 'Send Message'} {/* Dynamic button text */}
+                    {isSending ? 'Sending...' : 'Send Message'}
                   </Button>
-                  {status && ( // Display status message
+                  {status && (
                     <p className={`text-center text-sm mt-4 ${status.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
                       {status}
                     </p>
