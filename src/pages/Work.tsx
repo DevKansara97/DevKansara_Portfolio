@@ -56,7 +56,7 @@ const Work = () => {
       responsibilities: [
         'Posting complex Data Structures and Algorithms problems with solutions',
         'Participating in programming contests and competitions',
-        'Helping team members improve their problem-solving skills',
+        'Helping juniors improve their problem-solving skills',
         'Organizing coding practice sessions'
       ]
     }
@@ -84,7 +84,7 @@ const Work = () => {
             </h2>
             <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <Card key={index} className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue animate-slide-in-left">
+                <Card key={index} className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue-dark animate-slide-in-left">
                   <div className="mb-6">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                       <div className="flex-1">
@@ -107,11 +107,11 @@ const Work = () => {
                           </span>
                         </div>
                       </div>
-                      <Badge variant="secondary" className="bg-portfolio-blue text-white self-start">
+                      <Badge variant="secondary" className="bg-portfolio-blue-dark text-white self-start hover:bg-portfolio-blue-dark">
                         {exp.type}
                       </Badge>
                     </div>
-                    
+
                     <p className="text-gray-700 mb-6 leading-relaxed">{exp.description}</p>
                   </div>
 
@@ -135,7 +135,7 @@ const Work = () => {
                       <h4 className="font-semibold text-gray-900 mb-3">Skills Developed</h4>
                       <div className="flex flex-wrap gap-2">
                         {exp.skills.map((skill, i) => (
-                          <Badge key={i} variant="outline" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue hover:text-white cursor-pointer">
+                          <Badge key={i} variant="outline" className="border-portfolio-blue-dark text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white cursor-pointer">
                             <a href={skill.url} target="_blank" rel="noopener noreferrer">
                               {skill.name}
                             </a>
@@ -150,11 +150,15 @@ const Work = () => {
           </div>
 
           {/* Positions of Responsibility */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-poppins">Positions of Responsibility</h2>
+          <div className="mt-16"> {/* Added top margin for separation */}
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-poppins flex items-center gap-3">
+              <Users className="w-8 h-8 text-portfolio-blue-dark" />
+              Positions of Responsibility
+            </h2>
+            {/* Removed flex justify-center wrapper */}
             <div className="space-y-6">
               {positions.map((position, index) => (
-                <Card key={index} className="p-6 hover-lift bg-white border-portfolio-blue/20 animate-slide-in-right">
+                <Card key={index} className="p-6 hover-lift bg-white border-portfolio-blue/20 animate-slide-in-left"> {/* Re-added animate-slide-in-right */}
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-900 mb-2 font-poppins">{position.title}</h3>
@@ -165,9 +169,9 @@ const Work = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-700 mb-4">{position.description}</p>
-                  
+
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-3">Responsibilities</h4>
                     <ul className="space-y-2">
