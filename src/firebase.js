@@ -3,15 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics"; // Optional, if you want to use Analytics
 
-// Your web app's Firebase configuration
+// Your NEW web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBipHRxuqyGDH7oP-XigiDJ5x4uMwRPMyE",
-  authDomain: "portfolio-31777.firebaseapp.com",
-  projectId: "portfolio-31777",
-  storageBucket: "portfolio-31777.firebasestorage.app",
-  messagingSenderId: "868592233794",
-  appId: "1:868592233794:web:0eeb3f8dae149996eeacdb",
-  measurementId: "G-HHGHGVXM1L"
+  apiKey: "AIzaSyC9hrJA077mJFphO-bPi1D_KANKZS5Hufk",
+  authDomain: "dev-kansara.firebaseapp.com",
+  projectId: "dev-kansara",
+  storageBucket: "dev-kansara.firebasestorage.app",
+  messagingSenderId: "590161949236",
+  appId: "1:590161949236:web:480e9eb921236989321061",
+  measurementId: "G-TXGWB32MQ8"
 };
 
 // Initialize Firebase
