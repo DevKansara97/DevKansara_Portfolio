@@ -1,4 +1,3 @@
-
 import { Trophy, Medal, Users, Calendar, Award } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -9,7 +8,7 @@ const ExtraCurricular = () => {
     {
       title: 'District Level Volleyball Player',
       category: 'Sports Achievement',
-      description: 'Represented the district in volleyball competitions, demonstrating exceptional athletic skills and sportsmanship.',
+      description: 'Selected for Gandhinagar district volleyball team demonstrating athletic skills and sportsmanship.',
       details: [
         'Selected for district-level volleyball team',
         'Competed in state-level tournaments'
@@ -18,10 +17,10 @@ const ExtraCurricular = () => {
       featured: true
     },
     {
-      title: 'Ahmedabad University Volleyball Team - Right Spiker',
+      title: 'Ahmedabad University Volleyball Team',
       category: 'University Sports',
       duration: 'Aug 2024 - Apr 2025',
-      description: 'Key player in the university volleyball team, representing Ahmedabad University in inter-university competitions.',
+      description: 'Right Spiker in the university volleyball team, representing Ahmedabad University in inter-university competitions.',
       details: [
         'Selected as right spiker for university team',
         'Selected for Gandhinagar District Team'
@@ -43,8 +42,8 @@ const ExtraCurricular = () => {
         'Helped students identify local social issues in their communities'
       ],
       impact: [
-        'Worked with 20+ students from government schools',
-        'Helped develop 5+ community-focused solution proposals'
+        'Worked with 30+ students from government schools',
+        'Helped develop a community-focused solution proposal'
       ]
     }
   ];
@@ -52,13 +51,13 @@ const ExtraCurricular = () => {
   const leadership = [
     {
       title: 'Student Mentorship & Guidance',
-      role: 'District Topper Mentor',
+      role: 'Navsari District 1st',
       organization: 'SFA Convent High School',
       duration: 'May 2025',
       description: 'Mentored high school students as District Topper (HSC 2023), sharing strategies for academic success and goal achievement.',
       activities: [
-        'Conducted mentorship sessions for high school students',
-        'Shared study strategies and goal-setting techniques'
+        'Conducted a mentorship session for high school students',
+        'Shared study strategies and time-management techniques'
       ]
     }
   ];
@@ -85,14 +84,14 @@ const ExtraCurricular = () => {
             </h2>
             <div className="grid lg:grid-cols-2 gap-8">
               {achievements.map((achievement, index) => (
-                <Card key={index} className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue animate-slide-in-left">
+                <Card key={index} className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue-dark animate-slide-in-left">
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-16 h-16 bg-portfolio-blue rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-16 h-16 bg-portfolio-blue-dark rounded-full flex items-center justify-center flex-shrink-0">
                       <achievement.icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <Badge variant="secondary" className="bg-portfolio-blue text-white">
+                        <Badge variant="secondary" className="bg-portfolio-blue-dark text-white hover:bg-portfolio-blue-dark">
                           {achievement.category}
                         </Badge>
                         {achievement.featured && (
@@ -110,20 +109,8 @@ const ExtraCurricular = () => {
                       )}
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-700 mb-6 leading-relaxed">{achievement.description}</p>
-                  
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Highlights</h4>
-                    <ul className="space-y-2">
-                      {achievement.details.map((detail, i) => (
-                        <li key={i} className="text-gray-600 flex items-start gap-2">
-                          <div className="w-2 h-2 bg-portfolio-blue-dark rounded-full mt-2 flex-shrink-0"></div>
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </Card>
               ))}
             </div>
@@ -136,7 +123,7 @@ const ExtraCurricular = () => {
               Community Service
             </h2>
             {volunteerWork.map((work, index) => (
-              <Card key={index} className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue-dark animate-slide-in-right">
+              <Card key={index} className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue-dark animate-slide-in-left">
                 <div className="mb-6">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                     <div className="flex-1">
@@ -153,7 +140,7 @@ const ExtraCurricular = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-700 mb-6 leading-relaxed">{work.description}</p>
                 </div>
 
@@ -193,7 +180,7 @@ const ExtraCurricular = () => {
               Leadership & Mentorship
             </h2>
             {leadership.map((leader, index) => (
-              <Card key={index} className="p-8 hover-lift bg-white border-portfolio-blue/20 animate-fade-in">
+              <Card key={index} className="p-8 hover-lift bg-white border-portfolio-blue/20 animate-slide-in-left">
                 <div className="mb-6">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                     <div className="flex-1">
@@ -205,11 +192,11 @@ const ExtraCurricular = () => {
                         {leader.duration}
                       </p>
                     </div>
-                    <Badge variant="secondary" className="bg-portfolio-blue text-white self-start">
+                    <Badge variant="secondary" className="bg-portfolio-blue-dark text-white self-start hover:bg-portfolio-blue-dark">
                       Leadership
                     </Badge>
                   </div>
-                  
+
                   <p className="text-gray-700 mb-6 leading-relaxed">{leader.description}</p>
                 </div>
 
