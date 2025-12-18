@@ -45,6 +45,7 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
+    "firebase": "^12.4.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
@@ -85,5 +86,20 @@
     "vite": {
       "esbuild": "^0.25.0"
     }
-  }
+  },
+  "description": "Cloned_Repo",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevKansara97/DevKansara_Portfolio.git"
+  },
+  "keywords": [
+    "Dev_Kansara"
+  ],
+  "author": "Dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevKansara97/DevKansara_Portfolio/issues"
+  },
+  "homepage": "https://github.com/DevKansara97/DevKansara_Portfolio#readme"
 }
