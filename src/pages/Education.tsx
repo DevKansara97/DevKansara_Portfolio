@@ -2,6 +2,7 @@ import { Calendar, Award, BookOpen, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Layout from '@/components/Layout';
+import { motion } from 'framer-motion';
 
 const Education = () => {
   const educationData = [
@@ -42,65 +43,83 @@ const Education = () => {
     }
   ];
 
+  const scrollVariants = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }
+  };
+
   return (
     <Layout>
       <div className="min-h-screen py-20 px-6 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-poppins">
               Education & Learning
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               My academic journey and continuous learning in computer science and software development
             </p>
-          </div>
+          </motion.div>
 
           {/* Education Timeline */}
-          <div className="mb-16">
+          <div className="mb-20">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 font-poppins flex items-center gap-3">
               <BookOpen className="w-8 h-8 text-portfolio-blue-dark" />
               Academic Background
             </h2>
-            <div className="space-y-8">
+            <div className="space-y-12">
               {educationData.map((edu, index) => (
-                <Card key={index} className={`p-8 hover-lift bg-white border-l-4 ${edu.status === 'current' ? 'border-l-portfolio-blue-dark' : 'border-l-portfolio-blue-dark'} animate-slide-in-left`}>
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                    <div className="flex items-center gap-3 mb-2 lg:mb-0">
-                      <div className={`w-3 h-3 rounded-full ${edu.status == 'current' ? 'bg-portfolio-blue-dark' : 'bg-portfolio-blue-dark'}`}></div>
-                      <span className="text-sm font-medium text-gray-500 flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        {edu.year}
-                      </span>
-                      {edu.status === 'current' && (
-                        <Badge
-                          variant="secondary"
-                          className="bg-portfolio-blue-dark text-white hover:bg-portfolio-blue-dark hover:text-white" // Added hover styles
-                        >
-                          Current
-                        </Badge>
-                      )}
+                <motion.div
+                  key={index}
+                  initial={scrollVariants.initial}
+                  whileInView={scrollVariants.whileInView}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={scrollVariants.transition}
+                >
+                  <Card className="p-8 hover-lift bg-white border-l-4 border-l-portfolio-blue-dark shadow-sm">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="text-sm font-medium text-gray-500 flex items-center gap-2 bg-gray-50 px-3 py-1 rounded-full">
+                            <Calendar className="w-4 h-4" />
+                            {edu.year}
+                          </span>
+                          {edu.status === 'current' && (
+                            <Badge className="bg-portfolio-blue-dark text-white">
+                              Current
+                            </Badge>
+                          )}
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2 font-poppins">{edu.degree}</h3>
+                        <p className="text-xl text-portfolio-blue-dark font-semibold mb-1">{edu.institution}</p>
+                        <p className="text-gray-600">{edu.school}</p>
+                      </div>
+                      <div className="mt-4 lg:mt-0 lg:text-right">
+                        <span className="text-3xl font-bold text-portfolio-blue-dark">{edu.grade}</span>
+                        <p className="text-sm text-gray-500 font-medium">Academic Performance</p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <span className="text-2xl font-bold text-portfolio-blue-dark">{edu.grade}</span>
-                    </div>
-                  </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2 font-poppins">{edu.degree}</h3>
-                  <p className="text-lg text-gray-700 mb-1">{edu.institution}</p>
-                  <p className="text-gray-600 mb-4">{edu.school}</p>
-
-                  {edu.achievements && (
-                    <div className="flex flex-wrap gap-2">
-                      {edu.achievements.map((achievement, i) => (
-                        <Badge key={i} variant="outline" className="border-portfolio-blue-dark text-portfolio-blue-dark">
-                          <Award className="w-3 h-3 mr-1" />
-                          {achievement}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </Card>
+                    {edu.achievements && (
+                      <div className="flex flex-wrap gap-3">
+                        {edu.achievements.map((achievement, i) => (
+                          <Badge key={i} variant="outline" className="border-portfolio-blue-dark/30 text-portfolio-blue-dark py-1.5 px-4 bg-portfolio-blue-dark/5">
+                            <Award className="w-4 h-4 mr-2" />
+                            {achievement}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -111,37 +130,45 @@ const Education = () => {
               <Award className="w-8 h-8 text-portfolio-blue-dark" />
               Certifications
             </h2>
-            {/* Added a flex container with justify-center to center the grid */}
-            <div className="flex justify-center translate-x-5">
-              <div className="grid lg:grid-cols-2 gap-8 translate-x-10">
-                {certifications.map((cert, index) => (
+            <div className="grid md:grid-cols-2 gap-8">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={scrollVariants.initial}
+                  whileInView={scrollVariants.whileInView}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ ...scrollVariants.transition, delay: index * 0.1 }}
+                >
                   <a
-                    key={index}
                     href={cert.link || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block"
+                    className="block h-full"
                   >
-                    <Card className="p-8 hover-lift bg-white border-portfolio-blue-dark/20 animate-slide-in-right h-full">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-900 mb-2 font-poppins">{cert.title}</h3>
-                          <p className="text-portfolio-blue-dark font-medium mb-1">{cert.issuer}</p>
-                          <p className="text-sm text-gray-500 flex items-center gap-2">
-                            <Calendar className="w-4 h-4" />
-                            {cert.date}
-                          </p>
+                    <Card className="p-8 hover-lift bg-white border-portfolio-blue-dark/10 h-full flex flex-col justify-between shadow-sm">
+                      <div>
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="p-3 bg-portfolio-blue-dark/5 rounded-xl">
+                            <Award className="w-8 h-8 text-portfolio-blue-dark" />
+                          </div>
+                          {cert.link && (
+                            <div className="flex items-center gap-1 text-xs font-semibold text-portfolio-blue-dark uppercase tracking-wider">
+                              Verify <ExternalLink className="w-4 h-4" />
+                            </div>
+                          )}
                         </div>
-                        <div className="flex-shrink-0 ml-4 flex items-center gap-2">
-                          <Award className="w-8 h-8 text-portfolio-blue-dark" />
-                          {cert.link && <ExternalLink className="w-5 h-5 text-gray-500" />}
-                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 font-poppins">{cert.title}</h3>
+                        <p className="text-portfolio-blue-dark font-semibold mb-2">{cert.issuer}</p>
+                        <p className="text-sm text-gray-500 flex items-center gap-2 mb-4">
+                          <Calendar className="w-4 h-4" />
+                          {cert.date}
+                        </p>
+                        <p className="text-gray-600 leading-relaxed">{cert.description}</p>
                       </div>
-                      <p className="text-gray-600">{cert.description}</p>
                     </Card>
                   </a>
-                ))}
-              </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
