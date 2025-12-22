@@ -35,10 +35,8 @@ const Work = () => {
       location: 'Remote',
       description: 'Designed and developed "AI Nexus Portfolio", a premium, automated portfolio platform for a senior M.Tech student. Focused on creating a high-performance, responsive single-page application with automated CI/CD pipelines.',
       responsibilities: [
-        'Built a custom React + Tailwind CSS architecture with smooth Framer Motion animations',
         'Integrated EmailJS for serverless contact form functionality',
-        'Architected automated deployment pipeline using GitHub Actions and Firebase Hosting',
-        'Implemented responsive UI components using Shadcn/UI for a professional aesthetic'
+        'Architected automated deployment pipeline using GitHub Actions and Firebase Hosting'
       ],
       githubLink: 'https://github.com/DevKansara97/urjit-ai-nexus',
       demoLink: 'https://urjit-mehta.web.app/',
