@@ -122,7 +122,7 @@ const Contact = () => {
 
               <motion.div transition={{ delay: 0.3 }} className="pt-6">
                 <Button className="h-14 px-8 bg-portfolio-blue-dark text-white hover:bg-[#6bb7cc] transition-all shadow-lg" asChild>
-                  <a href="/Resume.pdf" target="_blank">
+                  <a href="/Resume_02.pdf" target="_blank">
                     <Download className="w-5 h-5 mr-3" />
                     Download Full Resume
                   </a>
