@@ -11,7 +11,7 @@ const Education = () => {
       degree: 'B.Tech in Computer Science and Engineering',
       institution: 'Ahmedabad University',
       school: 'School of Engineering and Applied Science',
-      grade: '3.76/4.00 CGPA',
+      grade: '3.75/4.00 CGPA',
       status: 'current',
       achievements: ['University Merit Scholarship', 'Competitive Programming Team Member']
     },
