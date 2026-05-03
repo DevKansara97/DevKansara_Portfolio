@@ -7,6 +7,46 @@ import { motion } from 'framer-motion'; // Added for smooth scroll animations
 
 const Projects = () => {
   const projects = [
+    
+    {
+      title: 'Blockchain-Based Real-World Asset Tokenization System',
+      duration: 'Academic Project (CSE542)',
+      organization: 'Ahmedabad University',
+      teamSize: 3,
+      description: 'Designed and implemented a decentralized application (DApp) for tokenizing real-world assets using Ethereum blockchain. The system uses smart contracts in Solidity to enable secure asset registration, ownership tracking, and transfer. Integrated on-chain and off-chain storage using IPFS and implemented wallet-based authentication via MetaMask.',
+      skills: ['Blockchain', 'Ethereum', 'Solidity', 'Smart Contracts', 'Ethers.js', 'IPFS', 'React', 'Web3'],
+      keyOutcomes: 'Built a secure and transparent asset ownership system with immutable records; implemented NFT-based and fractional ownership models with smart contract automation.',
+      category: 'Blockchain & Web3',
+      featured: true,
+      githubLink: null,
+      demoLink: null
+    },
+    {
+      title: 'Seva Connect – NGO Resource Donation Management System',
+      duration: 'Software Engineering Project (CSE408)',
+      organization: 'Ahmedabad University',
+      teamSize: 5,
+      description: 'Developed a full-stack web platform connecting NGOs and donors to streamline resource donations. Implemented features such as requirement posting, real-time tracking, OTP-based authentication, and donation management. Built using a client-server architecture with RESTful APIs and role-based modules for NGOs, donors, and administrators.',
+      skills: ['Python', 'Flask', 'Oracle XE', 'HTML', 'CSS', 'JavaScript', 'REST APIs', 'Authentication (2FA)'],
+      keyOutcomes: 'Created a scalable and transparent donation system with real-time updates, secure authentication, and modular architecture improving coordination between NGOs and donors.',
+      category: 'Web Development',
+      featured: true,
+      githubLink: null,
+      demoLink: 'https://drive.google.com/file/d/1QDmsGhs8R79mZJMN-GAR14MxOgewpl6W/view'
+    },
+    {
+      title: 'Brain Tumor MRI Classification using CNN (Big Data Analytics)',
+      duration: 'Apr 10 2025 - Apr 20 2025',
+      organization: 'Ahmedabad University',
+      teamSize: 4,
+      description: 'Developed a deep learning pipeline for brain tumor classification using MRI images. The project involved dataset extraction via KaggleHub, preprocessing large-scale image data, and building a Convolutional Neural Network (CNN) for multi-class classification (glioma, meningioma, pituitary, no tumor). Implemented data normalization, batching, and performance optimization techniques.',
+      skills: ['Python', 'TensorFlow', 'Keras', 'CNN', 'KaggleHub', 'Data Preprocessing', 'NumPy', 'Matplotlib'],
+      keyOutcomes: 'Achieved ~90% classification accuracy on test dataset; implemented full ML pipeline including preprocessing, training, evaluation (confusion matrix & ROC curve), and performance optimization.',
+      category: 'Data Science & ML',
+      featured: true,
+      githubLink: null,
+      demoLink: null
+    },
     {
       title: 'Planetary Exploration Rover: Hybrid AI Architecture',
       duration: 'Oct 2025 - Dec 2025',
@@ -101,6 +141,8 @@ const Projects = () => {
         return 'bg-yellow-100 text-yellow-800 border-yellow-200';
       case 'Computer Vision & AI':
         return 'bg-indigo-100 text-indigo-800 border-indigo-200';
+      case 'Blockchain & Web3':
+        return 'bg-orange-100 text-orange-800 border-orange-200';
       default:
         return 'bg-gray-100 text-gray-800 border-gray-200';
     }

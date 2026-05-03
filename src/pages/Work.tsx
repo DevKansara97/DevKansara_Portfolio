@@ -8,6 +8,24 @@ import { motion } from 'framer-motion';
 const Work = () => {
   const experiences = [
     {
+      title: 'Teaching Assistant - Discrete Mathematics (CSE211)',
+      organization: 'Ahmedabad University • Prof. Srikrishnan Divakaran',
+      duration: 'Jan 2025 - Apr 2025',
+      type: 'Teaching Assistant',
+      location: 'Ahmedabad, Gujarat',
+      description: 'Assisted in the Discrete Mathematics course by supporting in-class activities, evaluating student work, and resolving academic queries.',
+      responsibilities: [
+        'Evaluated in-class problem sets and assignments',
+        'Resolved student queries and managed attendance records'
+      ],
+      skills: [
+        { name: 'Discrete Mathematics', url: 'https://en.wikipedia.org/wiki/Discrete_mathematics' },
+        { name: 'Problem Solving', url: 'https://en.wikipedia.org/wiki/Problem_solving' },
+        { name: 'Student Interaction', url: 'https://en.wikipedia.org/wiki/Communication' },
+        { name: 'Analytical Thinking', url: 'https://en.wikipedia.org/wiki/Analytical_skill' }
+      ]
+    },
+    {
       title: 'Teaching Assistant - Digital Logic & HDL',
       organization: 'Ahmedabad University • Prof. Harmeet Kaur',
       duration: 'Aug 2025 - Nov 2025',
