@@ -10,7 +10,7 @@ const Work = () => {
     {
       title: 'Teaching Assistant - Discrete Mathematics (CSE211)',
       organization: 'Ahmedabad University • Prof. Srikrishnan Divakaran',
-      duration: 'Jan 2025 - Apr 2025',
+      duration: 'Jan 2026 - Apr 2026',
       type: 'Teaching Assistant',
       location: 'Ahmedabad, Gujarat',
       description: 'Assisted in the Discrete Mathematics course by supporting in-class activities, evaluating student work, and resolving academic queries.',
