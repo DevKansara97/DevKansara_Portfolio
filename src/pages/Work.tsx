@@ -8,112 +8,104 @@ import { motion } from 'framer-motion';
 const Work = () => {
   const experiences = [
     {
-      title: 'Teaching Assistant - Discrete Mathematics (CSE211)',
-      organization: 'Ahmedabad University • Prof. Srikrishnan Divakaran',
-      duration: 'Jan 2026 - Apr 2026',
-      type: 'Teaching Assistant',
-      location: 'Ahmedabad, Gujarat',
-      description: 'Assisted in the Discrete Mathematics course by supporting in-class activities, evaluating student work, and resolving academic queries.',
+      title: 'LLM Engineering Intern',
+      organization: 'Blink Analytics',
+      duration: 'Jun 2026 - Jul 2026',
+      type: 'Internship',
+      location: 'Remote',
+      description: 'Built data analytics pipelines and automated optimization tools using LLM metrics and embedding frameworks.',
       responsibilities: [
-        'Evaluated in-class problem sets and assignments',
-        'Resolved student queries and managed attendance records'
+        'Configured PostHog data pipelines with GCP BigQuery to analyze user behavior via Google BigQuery/SQL.',
+        'Built zero-shot embedding prototypes using cosine similarity to minimize LLM API call dependencies.',
+        'Built a job-candidate recommendation engine using ESCO/O*NET ontology matching and interview performance metrics.'
       ],
       skills: [
-        { name: 'Discrete Mathematics', url: 'https://en.wikipedia.org/wiki/Discrete_mathematics' },
-        { name: 'Problem Solving', url: 'https://en.wikipedia.org/wiki/Problem_solving' },
-        { name: 'Student Interaction', url: 'https://en.wikipedia.org/wiki/Communication' },
-        { name: 'Analytical Thinking', url: 'https://en.wikipedia.org/wiki/Analytical_skill' }
-      ]
-    },
-    {
-      title: 'Teaching Assistant - Digital Logic & HDL',
-      organization: 'Ahmedabad University • Prof. Harmeet Kaur',
-      duration: 'Aug 2025 - Nov 2025',
-      type: 'Teaching Assistant',
-      location: 'Ahmedabad, Gujarat',
-      description: 'Mentored undergraduate students in Digital Logic and Hardware Description Languages course. Facilitated both theoretical understanding and hands-on laboratory implementation of digital systems.',
-      responsibilities: [
-        'Conducted weekly 2-hour lab sessions mentoring students on Logisim circuit design and Verilog HDL programming',
-        'Evaluated 10 comprehensive Lab Reports and 3 class assignments covering K-Maps, Boolean Algebra, and FSMs (Mealy/Moore)',
-        'Supported theory classes by resolving queries regarding sequential and combinational logic'
-      ],
-      skills: [
-        { name: 'Verilog HDL', url: 'https://en.wikipedia.org/wiki/Verilog' },
-        { name: 'Logisim', url: 'http://www.cburch.com/logisim/' },
-        { name: 'Digital Electronics', url: 'https://en.wikipedia.org/wiki/Digital_electronics' },
-        { name: 'FSM Design', url: 'https://en.wikipedia.org/wiki/Finite-state_machine' },
-        { name: 'Computer Architecture', url: 'https://en.wikipedia.org/wiki/Computer_architecture' }
+        { name: 'LLM Engineering', url: 'https://en.wikipedia.org/wiki/Large_language_model' },
+        { name: 'GCP BigQuery', url: 'https://cloud.google.com/bigquery' },
+        { name: 'PostHog & HogQL', url: 'https://posthog.com/' },
+        { name: 'Vector Embeddings', url: 'https://en.wikipedia.org/wiki/Word_embedding' }
       ]
     },
     {
       title: 'Freelance Web Developer',
-      organization: 'Client: Urjit Mehta (M.Tech CS & AI)',
+      organization: 'Freelance',
       duration: 'Jun 2025 - Jul 2025',
       type: 'Freelance',
       location: 'Remote',
-      description: 'Designed and developed "AI Nexus Portfolio", a premium, automated portfolio platform for a senior M.Tech student. Focused on creating a high-performance, responsive single-page application with automated CI/CD pipelines.',
+      description: 'Developed "AI Nexus Portfolio", a high-performance portfolio platform for a senior M.Tech student.',
       responsibilities: [
-        'Integrated EmailJS for serverless contact form functionality',
-        'Architected automated deployment pipeline using GitHub Actions and Firebase Hosting'
+        'Integrated EmailJS for serverless contact forms.',
+        'Architected automated CI/CD pipelines using GitHub Actions and Firebase Hosting.'
       ],
       githubLink: 'https://github.com/DevKansara97/urjit-ai-nexus',
       demoLink: 'https://urjit-mehta.web.app/',
       skills: [
         { name: 'React.js', url: 'https://react.dev/' },
         { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' },
-        { name: 'Firebase', url: 'https://firebase.google.com/' },
-        { name: 'GitHub Actions', url: 'https://github.com/features/actions' }
+        { name: 'Firebase', url: 'https://firebase.google.com/' }
       ]
     },
     {
       title: 'Web Development Intern',
-      organization: 'MICA University • Prof. Suresh Malodia',
+      organization: 'MICA University',
       duration: 'Jun 2025 - Jul 2025',
       type: 'Internship',
       location: 'Ahmedabad, Gujarat',
-      description: 'Developed an interactive web application for a prompt engineering game ("Ghaziabad NH-9 Cattle Problem"). The platform simulated real-world traffic scenarios with dedicated interfaces for students and professors to interact with AI prompts.',
+      description: 'Developed an interactive web app simulating traffic scenarios for a prompt engineering game.',
       responsibilities: [
-        'Developed interactive web application using modern web technologies',
-        'Implemented real-time data synchronization using Firebase Firestore',
-        'Built a custom dashboard for professors to monitor student prompt performance'
+        'Implemented real-time data synchronization using Firebase Firestore.',
+        'Built a custom analytics dashboard for tracking student prompt performance.'
       ],
       githubLink: 'https://github.com/DevKansara97/Ghaziabad-NH-9-Cattle-Problem-Professor-Presentation-Website',
       skills: [
         { name: 'JavaScript', url: 'https://en.wikipedia.org/wiki/JavaScript' },
         { name: 'Firebase', url: 'https://en.wikipedia.org/wiki/Firebase' },
-        { name: 'Prompt Engineering', url: 'https://en.wikipedia.org/wiki/Prompt_engineering' },
-        { name: 'Real-time Systems', url: 'https://en.wikipedia.org/wiki/Real-time_computing' }
-      ]
-    },
-    {
-      title: 'Volleyball Teaching Assistant',
-      organization: 'Ahmedabad University',
-      duration: 'Aug 2024 - Apr 2025',
-      type: 'Teaching Assistant',
-      location: 'Ahmedabad, Gujarat',
-      description: 'Assisted in teaching volleyball to 1st year students through the university\'s Work Study Program, combining my athletic expertise with educational responsibilities.',
-      responsibilities: [
-        'Taught volleyball fundamentals to first-year university students',
-        'Organized and conducted training sessions and practice matches'
-      ],
-      skills: [
-        { name: 'Leadership', url: 'https://en.wikipedia.org/wiki/Leadership' },
-        { name: 'Communication', url: 'https://en.wikipedia.org/wiki/Communication' },
-        { name: 'Sports Coaching', url: 'https://en.wikipedia.org/wiki/Coach_(sport)' }
+        { name: 'Prompt Engineering', url: 'https://en.wikipedia.org/wiki/Prompt_engineering' }
       ]
     }
   ];
 
   const positions = [
     {
+      title: 'Teaching Assistant - Discrete Mathematics',
+      organization: 'Ahmedabad University',
+      duration: 'Jan 2026 - Apr 2026',
+      description: 'Assisted in course delivery, student academic support, and grading evaluations.',
+      responsibilities: [
+        'Evaluated in-class problem sets and assignments.',
+        'Resolved student academic queries and managed administrative records.'
+      ]
+    },
+    {
+      title: 'Teaching Assistant - Digital Logic & HDL',
+      organization: 'Ahmedabad University',
+      duration: 'Aug 2025 - Nov 2025',
+      description: 'Mentored undergraduate students in theoretical and laboratory digital systems implementation.',
+      responsibilities: [
+        'Conducted weekly 2-hour lab sessions on Logisim circuit design and Verilog HDL.',
+        'Evaluated lab reports and assignments covering K-Maps, Boolean Algebra, and FSMs.',
+        'Supported lecture sessions by resolving queries on sequential and combinational logic.'
+      ]
+    },
+    {
       title: 'Competitive Programming Team Member',
       organization: 'Ahmedabad University',
       duration: 'Aug 2024 - May 2026',
-      description: 'Contributing to collaborative learning environment and strengthening team\'s competitive programming abilities',
+      description: 'Collaborate with peers to solve complex algorithmic challenges and foster a programming culture.',
       responsibilities: [
-        'Posting complex Data Structures and Algorithms problems with solutions',
-        'Participating in programming contests and competitions',
-        'Helping juniors improve their problem-solving skills'
+        'Publishing advanced DSA problem explanations and solutions.',
+        'Competing in institutional and open programming contests.',
+        'Mentoring junior members on algorithmic techniques.'
+      ]
+    },
+    {
+      title: 'Volleyball Teaching Assistant',
+      organization: 'Ahmedabad University',
+      duration: 'Aug 2024 - Apr 2025',
+      description: 'Coached first-year university students as part of the university work-study program.',
+      responsibilities: [
+        'Taught fundamental volleyball skills and court strategies.',
+        'Organized and refereed weekly training drills and practice matches.'
       ]
     }
   ];
@@ -136,11 +128,11 @@ const Work = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-poppins">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-poppins">
               Work Experience
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              My professional journey through internships, teaching roles, and freelance contributions
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              My professional journey through software engineering, internships, and leadership roles.
             </p>
           </motion.div>
 
@@ -163,9 +155,9 @@ const Work = () => {
                     <div className="mb-6">
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                         <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2 font-poppins">{exp.title}</h3>
+                          <h3 className="text-2xl font-bold text-gray-900 mb-1 font-poppins">{exp.title}</h3>
                           <p className="text-xl text-portfolio-blue-dark font-semibold mb-2">{exp.organization}</p>
-                          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                             <span className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               {exp.duration}
@@ -176,7 +168,7 @@ const Work = () => {
                             </span>
                           </div>
                         </div>
-                        <Badge variant="secondary" className="bg-portfolio-blue-dark text-white self-start">
+                        <Badge variant="secondary" className="bg-portfolio-blue-dark text-white self-start mt-2 lg:mt-0">
                           {exp.type}
                         </Badge>
                       </div>
@@ -187,14 +179,14 @@ const Work = () => {
                       {(exp.githubLink || exp.demoLink) && (
                         <div className="flex gap-4 mb-6">
                           {exp.githubLink && (
-                            <Button asChild variant="outline" size="sm" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white transition-all duration-300">
+                            <Button asChild variant="outline" size="sm" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white transition-all">
                               <a href={exp.githubLink} target="_blank" rel="noopener noreferrer">
                                 <Github className="w-4 h-4 mr-2" /> View Code
                               </a>
                             </Button>
                           )}
                           {exp.demoLink && (
-                            <Button asChild variant="outline" size="sm" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white transition-all duration-300">
+                            <Button asChild variant="outline" size="sm" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white transition-all">
                               <a href={exp.demoLink} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                               </a>
@@ -207,14 +199,13 @@ const Work = () => {
                     <div className="grid lg:grid-cols-2 gap-8">
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                          <metric className="w-5 h-5 text-portfolio-blue-dark" />
                           <Users className="w-5 h-5 text-portfolio-blue-dark" />
                           Key Responsibilities
                         </h4>
                         <ul className="space-y-2">
                           {exp.responsibilities.map((resp, i) => (
-                            <li key={i} className="text-gray-600 flex items-start gap-2">
-                              <div className="w-2 h-2 bg-portfolio-blue-dark rounded-full mt-2 flex-shrink-0"></div>
+                            <li key={i} className="text-gray-600 flex items-start gap-2 text-sm">
+                              <div className="w-1.5 h-1.5 bg-portfolio-blue-dark rounded-full mt-2 flex-shrink-0"></div>
                               {resp}
                             </li>
                           ))}
@@ -222,10 +213,10 @@ const Work = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">Skills Developed</h4>
+                        <h4 className="font-semibold text-gray-900 mb-3 text-sm tracking-wide uppercase text-gray-500">Skills</h4>
                         <div className="flex flex-wrap gap-2">
                           {exp.skills.map((skill, i) => (
-                            <Badge key={i} variant="outline" className="border-portfolio-blue-dark text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white transition-all">
+                            <Badge key={i} variant="outline" className="border-portfolio-blue-dark text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white transition-all text-xs">
                               <a href={skill.url} target="_blank" rel="noopener noreferrer">
                                 {skill.name}
                               </a>
@@ -256,17 +247,17 @@ const Work = () => {
                   transition={scrollVariants.transition}
                 >
                   <Card className="p-8 hover-lift bg-white border-l-4 border-l-gray-300 shadow-sm">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 font-poppins">{position.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-1 font-poppins">{position.title}</h3>
                     <p className="text-portfolio-blue-dark font-semibold mb-2">{position.organization}</p>
                     <p className="text-sm text-gray-600 flex items-center gap-2 mb-4">
                       <Calendar className="w-4 h-4" />
                       {position.duration}
                     </p>
-                    <p className="text-gray-700 mb-6">{position.description}</p>
+                    <p className="text-gray-700 mb-6 text-sm">{position.description}</p>
                     <ul className="space-y-2">
                       {position.responsibilities.map((resp, i) => (
-                        <li key={i} className="text-gray-600 flex items-start gap-2">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <li key={i} className="text-gray-600 flex items-start gap-2 text-sm">
+                          <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                           {resp}
                         </li>
                       ))}
