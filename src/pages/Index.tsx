@@ -63,12 +63,12 @@ const Index = () => {
           {/* Desktop / Large Screen Version */}
           <div className="hidden lg:flex h-full w-full items-center translate-x-11">
             {/* Left Content */}
-            <div className="w-1/2 px-6 lg:px-12 xl:px-20 z-10 translate-x-10">
+            <div className="w-1/2 px-6 lg:px-12 xl:px-20 z-10 translate-x-[80px]">
               <motion.div 
                 variants={slowVariantLeft}
                 initial="initial"
                 animate="animate"
-                className="max-w-2xl translate-x-15"
+                className="max-w-2xl translate-x-[10px]"
               >
                 <p className="text-lg text-gray-600 mb-4 font-inter">Hi, I am</p>
                 <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 font-poppins leading-tight">
@@ -97,7 +97,7 @@ const Index = () => {
                 animate="animate"
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <div className="w-85 h-80 rounded-full bg-gradient-to-br from-portfolio-blue to-portfolio-blue-dark flex items-center justify-center shadow-2xl overflow-hidden -translate-x-10 -translate-y-10">
+                <div className="w-[400px] h-[420px] rounded-full bg-gradient-to-br from-portfolio-blue to-portfolio-blue-dark flex items-center justify-center shadow-2xl overflow-hidden -translate-x-[50px] -translate-y-10">
                   <img
                     src="/myImg.png"
                     alt="Dev Kansara's Profile Picture"
