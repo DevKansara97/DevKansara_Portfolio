@@ -9,7 +9,7 @@ const Work = () => {
   const experiences = [
     {
       title: 'LLM Engineering Intern',
-      organization: 'Blink Analytics',
+      organization: 'Blink Analytics - Serin AI',
       duration: 'Jun 2026 - Jul 2026',
       type: 'Internship',
       location: 'Remote',
