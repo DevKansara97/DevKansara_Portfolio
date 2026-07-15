@@ -7,7 +7,20 @@ import { motion } from 'framer-motion'; // Added for smooth scroll animations
 
 const Projects = () => {
   const projects = [
-    
+
+    {
+      title: 'Dynamo-lite — Distributed Key-Value Store',
+      duration: 'Distributed Systems Project',
+      organization: 'Ahmedabad University',
+      teamSize: 1,
+      description: 'Built a fault-tolerant distributed key-value store from scratch in Java, inspired by Amazon\'s Dynamo paper (SOSP 2007). Implemented consistent hashing with 150 virtual nodes per physical node for uniform key distribution, quorum-based replication (N=3, W=2, R=2) with parallel fanout across a real 3-node LAN cluster, and heartbeat-based failure detection. No frameworks or external libraries — raw TCP sockets, custom wire protocol, and hand-written request parser.',
+      skills: ['Java', 'Distributed Systems', 'Consistent Hashing', 'Quorum Replication', 'TCP Sockets', 'Multithreading', 'ConcurrentHashMap', 'ExecutorService', 'Swing'],
+      keyOutcomes: 'System sustains reads and writes with 1-of-3 nodes down via quorum replication; auto-recovers missed writes through hinted handoff with under 5-second failure detection.',
+      category: 'Systems & Distributed Computing',
+      featured: true,
+      githubLink: null,
+      demoLink: null
+    },
     {
       title: 'Blockchain-Based Real-World Asset Tokenization System',
       duration: 'Academic Project (CSE542)',
@@ -114,7 +127,7 @@ const Projects = () => {
     },
     {
       title: 'Optical Character Recognition (OCR) using Tesseract',
-      duration: 'Aug 2024 Sep 2025', 
+      duration: 'Aug 2024 Sep 2025',
       organization: 'Team Project',
       teamSize: 4,
       description: 'Developed an OCR system using Python, integrating Tesseract OCR, OpenCV, and Pillow for accurate text detection and extraction from images. A key focus was on image pre-processing techniques using Pillow to improve text recognition accuracy and optimize the overall process.',
@@ -143,6 +156,8 @@ const Projects = () => {
         return 'bg-indigo-100 text-indigo-800 border-indigo-200';
       case 'Blockchain & Web3':
         return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'Systems & Distributed Computing':
+        return 'bg-blue-100 text-blue-800 border-blue-200';
       default:
         return 'bg-gray-100 text-gray-800 border-gray-200';
     }
@@ -153,7 +168,7 @@ const Projects = () => {
       <div className="min-h-screen py-20 px-6 lg:px-12 xl:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
