@@ -35,6 +35,13 @@ const Education = () => {
       link: 'RISC-V Certificate.pdf'
     },
     {
+      title: 'Linux Essentials Update',
+      issuer: 'Linux Essentials',
+      date: 'Jun 2026',
+      description: 'Expanded understanding of Linux fundamentals, system administration, and command-line workflows.',
+      link: 'LinuxEssentialsUpdate20260613-31-h335d9.pdf'
+    },
+    {
       title: 'Career Essentials in Software Development',
       issuer: 'Microsoft and LinkedIn',
       date: 'Aug 2024',
