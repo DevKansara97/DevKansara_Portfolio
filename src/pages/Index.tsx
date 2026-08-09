@@ -55,7 +55,7 @@ const Index = () => {
                 Dev Kansara
               </h1>
               <p className="text-lg text-gray-700 font-inter">
-                Computer Science Engineering Student <br /> Aspiring Software Engineer
+                Computer Science Engineering Student <br /> Continuous Learner
               </p>
             </motion.div>
           </div>
@@ -75,7 +75,7 @@ const Index = () => {
                   Dev Kansara
                 </h1>
                 <p className="text-xl lg:text-2xl text-gray-700 mb-8 font-inter">
-                  Computer Science Engineering Student <br /> Aspiring Software Engineer
+                  Computer Science Engineering Student <br /> Continuous Learner
                 </p>
               </motion.div>
             </div>
