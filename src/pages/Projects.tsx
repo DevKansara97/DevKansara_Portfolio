@@ -18,7 +18,7 @@ const Projects = () => {
       keyOutcomes: 'System sustains reads and writes with 1-of-3 nodes down via quorum replication; auto-recovers missed writes through hinted handoff with under 5-second failure detection.',
       category: 'Systems & Distributed Computing',
       featured: true,
-      githubLink: null,
+      githubLink: 'https://github.com/DevKansara97/Dynamo-Lite-Distributed-Systems',
       demoLink: null
     },
     {
@@ -31,8 +31,8 @@ const Projects = () => {
       keyOutcomes: 'Built a secure and transparent asset ownership system with immutable records; implemented NFT-based and fractional ownership models with smart contract automation.',
       category: 'Blockchain & Web3',
       featured: true,
-      githubLink: null,
-      demoLink: null
+      githubLink: 'https://github.com/DevKansara97/Design-and-Implementation-of-a-Blockchain-Based-Real-World-Asset-Tokenization-System-Using-Ethereum-',
+      demoLink: 'https://rwa-tokenization-sage.vercel.app/'
     },
     {
       title: 'Seva Connect – NGO Resource Donation Management System',
@@ -239,12 +239,20 @@ const Projects = () => {
                           </div>
                         </div>
 
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap gap-4">
                           {project.githubLink && (
                             <Button asChild variant="outline" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white">
                               <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                                 <Github className="w-4 h-4 mr-2" />
                                 View Code
+                              </a>
+                            </Button>
+                          )}
+                          {project.demoLink && (
+                            <Button asChild variant="outline" className="border-portfolio-blue text-portfolio-blue-dark hover:bg-portfolio-blue-dark hover:text-white">
+                              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="w-4 h-4 mr-2" />
+                                Live Demo
                               </a>
                             </Button>
                           )}
