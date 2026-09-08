@@ -1,0 +1,1 @@
+import{r,j as e,A as a}from"./prerender-DIzpQej3.js";var o,t=r;o=t.createRoot,t.hydrateRoot;o(document.getElementById("root")).render(e.jsx(a,{}));

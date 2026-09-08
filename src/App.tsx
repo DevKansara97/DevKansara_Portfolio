@@ -14,34 +14,103 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const siteUrl = 'https://dev-kansara.web.app';
-const socialImage = `${siteUrl}/icon.png`;
+export const siteUrl = 'https://dev-kansara.web.app';
+export const socialImage = `${siteUrl}/icon.png`;
 
-const pageMetadata: Record<string, { title: string; description: string }> = {
+export const pageMetadata: Record<string, { title: string; description: string; schemaType: string }> = {
   '/': {
     title: 'Dev Kansara | Computer Science Student & Software Developer',
-    description: 'Portfolio of Dev Kansara, a Computer Science Engineering student and software developer focused on distributed systems, AI, algorithms, and web development.'
+    description: 'Portfolio of Dev Kansara, a Computer Science Engineering student and software developer focused on distributed systems, AI, algorithms, and web development.',
+    schemaType: 'ProfilePage'
   },
   '/education': {
     title: 'Education & Certifications | Dev Kansara',
-    description: 'Explore Dev Kansara\'s Computer Science education, academic achievements, certifications, and continuous learning journey.'
+    description: 'Explore Dev Kansara\'s Computer Science education, academic achievements, certifications, and continuous learning journey.',
+    schemaType: 'WebPage'
   },
   '/projects': {
     title: 'Projects | Distributed Systems, AI & Software Development | Dev Kansara',
-    description: 'Explore Dev Kansara\'s projects in distributed systems, blockchain, artificial intelligence, machine learning, web development, and computer architecture.'
+    description: 'Explore Dev Kansara\'s projects in distributed systems, blockchain, artificial intelligence, machine learning, web development, and computer architecture.',
+    schemaType: 'CollectionPage'
   },
   '/work': {
     title: 'Work Experience | Software Development & Teaching | Dev Kansara',
-    description: 'View Dev Kansara\'s software development internships, teaching assistant roles, and technical experience at Ahmedabad University.'
+    description: 'View Dev Kansara\'s software development internships, teaching assistant roles, and technical experience at Ahmedabad University.',
+    schemaType: 'WebPage'
   },
   '/extra-curricular': {
     title: 'Leadership, Sports & Community Service | Dev Kansara',
-    description: 'Learn about Dev Kansara\'s leadership, volleyball achievements, student mentorship, and community service experience.'
+    description: 'Learn about Dev Kansara\'s leadership, volleyball achievements, student mentorship, and community service experience.',
+    schemaType: 'WebPage'
   },
   '/contact': {
     title: 'Contact Dev Kansara | Software Developer',
-    description: 'Get in touch with Dev Kansara about software development opportunities, technical collaborations, and projects.'
+    description: 'Get in touch with Dev Kansara about software development opportunities, technical collaborations, and projects.',
+    schemaType: 'ContactPage'
   }
+};
+
+const getMetadata = (pathname: string) => pageMetadata[pathname] ?? {
+  title: 'Page Not Found | Dev Kansara',
+  description: 'The requested page could not be found on Dev Kansara\'s portfolio.',
+  schemaType: 'WebPage'
+};
+
+const getStructuredData = (pathname: string) => {
+  const metadata = getMetadata(pathname);
+  const pageUrl = `${siteUrl}${pathname === '/' ? '' : pathname}`;
+  const page = {
+    '@type': metadata.schemaType,
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: metadata.title,
+    description: metadata.description,
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    about: { '@id': `${siteUrl}/#person` }
+  };
+
+  if (pathname === '/') {
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [
+        page,
+        {
+          '@type': 'Person',
+          '@id': `${siteUrl}/#person`,
+          name: 'Dev Kansara',
+          url: siteUrl,
+          image: socialImage,
+          jobTitle: 'Computer Science Student and Software Developer',
+          affiliation: {
+            '@type': 'CollegeOrUniversity',
+            name: 'Ahmedabad University'
+          },
+          sameAs: [
+            'https://github.com/DevKansara97',
+            'https://www.linkedin.com/in/devkansara97/'
+          ]
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${siteUrl}/#website`,
+          url: siteUrl,
+          name: 'Dev Kansara Portfolio',
+          publisher: { '@id': `${siteUrl}/#person` }
+        }
+      ]
+    };
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [page, {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+        { '@type': 'ListItem', position: 2, name: metadata.title.split(' | ')[0], item: pageUrl }
+      ]
+    }]
+  };
 };
 
 const setMetaTag = (attribute: 'name' | 'property', value: string, content: string) => {
@@ -60,10 +129,7 @@ const SeoMetadata = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const metadata = pageMetadata[pathname] ?? {
-      title: 'Page Not Found | Dev Kansara',
-      description: 'The requested page could not be found on Dev Kansara\'s portfolio.'
-    };
+    const metadata = getMetadata(pathname);
     const canonicalUrl = `${siteUrl}${pathname === '/' ? '' : pathname}`;
 
     document.title = metadata.title;
@@ -92,6 +158,17 @@ const SeoMetadata = () => {
   return null;
 };
 
+export const StructuredData = () => {
+  const { pathname } = useLocation();
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(getStructuredData(pathname)) }}
+    />
+  );
+};
+
 // Helper component to reset scroll position on every page navigation
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -103,24 +180,30 @@ const ScrollToTop = () => {
   return null;
 };
 
+export const AppRoutes = () => (
+  <>
+    <ScrollToTop />
+    <SeoMetadata />
+    <StructuredData />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/education" element={<Education />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/work" element={<Work />} />
+      <Route path="/extra-curricular" element={<ExtraCurricular />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        {/* ScrollToTop must be inside BrowserRouter but outside Routes */}
-        <ScrollToTop />
-        <SeoMetadata />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/extra-curricular" element={<ExtraCurricular />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

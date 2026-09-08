@@ -20,8 +20,8 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firestore
 const db = getFirestore(app);
 
-// Initialize Analytics (optional)
-const analytics = getAnalytics(app);
+// Analytics is browser-only and must not initialize during static prerendering.
+const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
 
 // Export db and app so you can use them in other files
 export { db, app, analytics };
