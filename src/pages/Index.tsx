@@ -35,6 +35,10 @@ const Index = () => {
               <img
                 src="/myImg.png"
                 alt="Dev Kansara's Profile Picture"
+                width={471}
+                height={529}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover rounded-full"
                 onError={(e) => {
                   e.currentTarget.src = "https://placehold.co/320x320/cccccc/ffffff?text=Image+Error";
@@ -101,6 +105,10 @@ const Index = () => {
                   <img
                     src="/myImg.png"
                     alt="Dev Kansara's Profile Picture"
+                    width={471}
+                    height={529}
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover rounded-full transform hover:scale-105 transition-transform duration-1000"
                     onError={(e) => {
                       e.currentTarget.src = "https://placehold.co/320x320/cccccc/ffffff?text=Image+Error";

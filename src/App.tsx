@@ -3,16 +3,29 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import Index from "./pages/Index";
-import Education from "./pages/Education";
-import Projects from "./pages/Projects";
-import Work from "./pages/Work";
-import ExtraCurricular from "./pages/ExtraCurricular";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { ComponentType, lazy, Suspense, useEffect } from "react";
 
 const queryClient = new QueryClient();
+
+type RouteComponents = {
+  home: ComponentType;
+  education: ComponentType;
+  projects: ComponentType;
+  work: ComponentType;
+  extraCurricular: ComponentType;
+  contact: ComponentType;
+  notFound: ComponentType;
+};
+
+const clientRouteComponents: RouteComponents = {
+  home: lazy(() => import("./pages/Index")),
+  education: lazy(() => import("./pages/Education")),
+  projects: lazy(() => import("./pages/Projects")),
+  work: lazy(() => import("./pages/Work")),
+  extraCurricular: lazy(() => import("./pages/ExtraCurricular")),
+  contact: lazy(() => import("./pages/Contact")),
+  notFound: lazy(() => import("./pages/NotFound"))
+};
 
 export const siteUrl = 'https://dev-kansara.web.app';
 export const socialImage = `${siteUrl}/icon.png`;
@@ -127,6 +140,7 @@ const setMetaTag = (attribute: 'name' | 'property', value: string, content: stri
 
 const SeoMetadata = () => {
   const { pathname } = useLocation();
+  const isKnownRoute = pathname in pageMetadata;
 
   useEffect(() => {
     const metadata = getMetadata(pathname);
@@ -136,11 +150,17 @@ const SeoMetadata = () => {
     setMetaTag('name', 'description', metadata.description);
     setMetaTag('property', 'og:title', metadata.title);
     setMetaTag('property', 'og:description', metadata.description);
+    setMetaTag('property', 'og:type', 'website');
+    setMetaTag('property', 'og:site_name', 'Dev Kansara Portfolio');
     setMetaTag('property', 'og:url', canonicalUrl);
     setMetaTag('property', 'og:image', socialImage);
+    setMetaTag('property', 'og:image:alt', 'Dev Kansara portfolio');
+    setMetaTag('name', 'robots', isKnownRoute ? 'index, follow' : 'noindex, nofollow');
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
     setMetaTag('name', 'twitter:title', metadata.title);
     setMetaTag('name', 'twitter:description', metadata.description);
     setMetaTag('name', 'twitter:image', socialImage);
+    setMetaTag('name', 'twitter:image:alt', 'Dev Kansara portfolio');
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
@@ -153,7 +173,7 @@ const SeoMetadata = () => {
     return () => {
       canonical?.remove();
     };
-  }, [pathname]);
+  }, [isKnownRoute, pathname]);
 
   return null;
 };
@@ -180,22 +200,34 @@ const ScrollToTop = () => {
   return null;
 };
 
-export const AppRoutes = () => (
+export const AppRoutes = ({ components = clientRouteComponents }: { components?: RouteComponents } = {}) => {
+  const HomePage = components.home;
+  const EducationPage = components.education;
+  const ProjectsPage = components.projects;
+  const WorkPage = components.work;
+  const ExtraCurricularPage = components.extraCurricular;
+  const ContactPage = components.contact;
+  const NotFoundPage = components.notFound;
+
+  return (
   <>
     <ScrollToTop />
     <SeoMetadata />
     <StructuredData />
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/education" element={<Education />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/work" element={<Work />} />
-      <Route path="/extra-curricular" element={<ExtraCurricular />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/education" element={<EducationPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/extra-curricular" element={<ExtraCurricularPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   </>
-);
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
