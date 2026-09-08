@@ -17,7 +17,12 @@ const Work = () => {
       responsibilities: [
         'Conduct hands-on problem solving and doubt solving sessions for 40+ M.Tech Students.'
       ],
-      skills: []
+      skills:  [
+        { name: 'Data Structures', url: 'https://en.wikipedia.org/wiki/Data_structure' },
+        { name: 'Algorithms', url: 'https://en.wikipedia.org/wiki/Algorithm' },
+        { name: 'Problem Solving', url: 'https://en.wikipedia.org/wiki/Problem_solving' },
+        // { name: 'Graph Algorithms', url: 'https://en.wikipedia.org/wiki/Graph_theory' }
+      ]
     },
     {
       title: 'LLM Engineering Intern',
