@@ -8,6 +8,18 @@ import { motion } from 'framer-motion';
 const Work = () => {
   const experiences = [
     {
+      title: 'Teaching Assistant - CSE605 Advance Data Structures and Algorithms',
+      organization: 'Ahmedabad University',
+      duration: 'Aug 2026 - Present',
+      type: 'TAship',
+      location: 'Ahmedabad',
+      description: '',
+      responsibilities: [
+        'Conduct hands-on problem solving and doubt solving sessions for 40+ M.Tech Students.'
+      ],
+      skills: []
+    },
+    {
       title: 'LLM Engineering Intern',
       organization: 'Blink Analytics - Serin AI',
       duration: 'Jun 2026 - Jul 2026',
